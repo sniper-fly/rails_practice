@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<%# binding.pry %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @blog.name %>
+</p>
+
+<p>
+  <strong>Article:</strong>
+  <%= @blog.article %>
+</p>
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
