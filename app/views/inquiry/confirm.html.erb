@@ -1,0 +1,18 @@
+<%= @inquiry.name %>
+<%= @inquiry.mail_address %>
+<%= @inquiry.category %>
+<%= @inquiry.content %>
+
+<%= form_for @inquiry, url: {action: 'create'} do |f| %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :mail_address %>
+  <%= f.hidden_field :category %>
+  <%= f.hidden_field :content %>
+
+  <div class="actions">
+    <%= f.submit '戻る', name: 'back' %>
+  </div>
+  <div class="actions">
+    <%= f.submit '送信' %>
+  </div>
+<% end %>

@@ -1,6 +1,6 @@
 <%= link_to 'Blog Top', blogs_path %>
 <h1>お問い合わせ</h1>
-<%= form_with model: @inquiry, url: {controller: 'inquiry', action: 'create'} do |form| %>
+<%= form_for @inquiry, url: {action: 'confirm'} do |form| %>
   <div>
     <%= form.label "名前" %>
     <%= form.text_field :name %>
@@ -25,7 +25,7 @@
   </div>
   <div>
     <%= form.label "内容" %>
-    <%= form.text_field :mail_address %>
+    <%= form.text_area :content %>
   </div>
   <br>
   <div>

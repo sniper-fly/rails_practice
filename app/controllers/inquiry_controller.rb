@@ -1,14 +1,19 @@
 class InquiryController < ApplicationController
 
-
   def new
     @inquiry = Inquiry.new
   end
 
+  def confirm
+    @inquiry = Inquiry.new(inquiry_params)
+  end
+
   def create
     @inquiry = Inquiry.new(inquiry_params)
-
-    if @inquiry.save
+    # binding.pry
+    if params[:back]
+      render :new
+    elsif @inquiry.save
       # NoticeMailer.sendmail_blog(@inquiry).deliver
       redirect_to blogs_path
     else
@@ -18,6 +23,6 @@ class InquiryController < ApplicationController
 
   private
   def inquiry_params
-    params[:inquiry].permit(:name, :mail_address, :category, :content)
+    params.require(:inquiry).permit(:name, :mail_address, :category, :content)
   end
 end
