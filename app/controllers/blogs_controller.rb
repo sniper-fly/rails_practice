@@ -28,6 +28,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
+        NoticeMailer.sendmail_blog(@blog).deliver
         format.html { redirect_to blog_url(@blog.id), notice: "Blog was successfully created." }
         format.json { render :show, status: :created, location: @blog }
       else
@@ -52,7 +53,6 @@ class BlogsController < ApplicationController
 
   # DELETE /blogs/1 or /blogs/1.json
   def destroy
-    # binding.pry
     @blog.destroy
     respond_to do |format|
       @blogs = Blog.all
