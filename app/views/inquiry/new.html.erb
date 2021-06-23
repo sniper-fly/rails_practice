@@ -1,0 +1,34 @@
+<%= link_to 'Blog Top', blogs_path %>
+<h1>お問い合わせ</h1>
+<%= form_with model: @inquiry, url: {controller: 'inquiry', action: 'create'} do |form| %>
+  <div>
+    <%= form.label "名前" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label "メールアドレス" %>
+    <%= form.text_field :mail_address %>
+  </div>
+  <div>
+    <%= form.label "カテゴリー"%>
+  </div>
+  <div>
+    <%= form.radio_button :category, 1 %>
+    <%= form.label "Achieve", {style: "display: inline-block;"}%>
+    <%= form.radio_button :category, 2 %>
+    <%= form.label "テキスト", {style: "display: inline-block;"}%>
+    <br>
+    <%= form.radio_button :category, 3 %>
+    <%= form.label "説明会", {style: "display: inline-block;"}%>
+    <%= form.radio_button :category, 4 %>
+    <%= form.label "その他", {style: "display: inline-block;"}%>
+  </div>
+  <div>
+    <%= form.label "内容" %>
+    <%= form.text_field :mail_address %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit "内容確認"%>
+  </div>
+<% end %>
