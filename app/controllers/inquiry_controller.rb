@@ -1,4 +1,6 @@
 class InquiryController < ApplicationController
+  def index
+  end
 
   def new
     @inquiry = Inquiry.new
@@ -15,7 +17,7 @@ class InquiryController < ApplicationController
       render :new
     elsif @inquiry.save
       # NoticeMailer.sendmail_blog(@inquiry).deliver
-      redirect_to blogs_path
+      redirect_to inquiry_index_path
     else
       render :new
     end
