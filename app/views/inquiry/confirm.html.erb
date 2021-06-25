@@ -1,3 +1,4 @@
+<%#binding.pry %>
 
 <%= form_for @inquiry, url: {action: 'create'} do |f| %>
   <%= f.hidden_field :name %>
@@ -15,7 +16,7 @@
   </div>
   <div>
     <%= f.label "カテゴリー", {style: "display: inline-block;"}%>
-    <%= @inquiry.category %>
+    <%= @inquiry.get_category %>
   </div>
   <div>
     <%= f.label "内容", {style: "display: inline-block;"} %>
