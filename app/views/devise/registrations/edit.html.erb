@@ -13,7 +13,6 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <% binding.pry %>
   <div class="field">
     <%= f.label :icon %><br />
     <%= image_tag(@user.icon) if @user.icon.attached? %>
