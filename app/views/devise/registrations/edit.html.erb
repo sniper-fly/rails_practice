@@ -17,6 +17,7 @@
     <%= f.label :icon %><br />
     <%= image_tag(@user.icon) if @user.icon.attached? %>
     <%= f.file_field :icon %>
+    <%#= f.file_field :icon, multiple: true, direct_upload: true %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
