@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # devise_for :users
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  root to: 'blogs#index'
+  root to: 'blogs#top'
   resources :blogs
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :inquiry
