@@ -10,7 +10,29 @@
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
+<header>
+    <h1 id="header_title">
+        <a href="/">ACHIEVE</a>
+    </h1>
+    <nav class="pc-nav">
+        <ul id="unordered-list">
+            <li><a id="anchor" href="#">TOP</a></li>
+            <li><a id="anchor" href="#">BLOGS</a></li>
+            <li><a id="anchor" href="#">LOGIN</a></li>
+            <li><a id="anchor" href="#">USERS</a></li>
+            <li><a id="anchor" href="#">INQUIRY</a></li>
+        </ul>
+    </nav>
+</header>
+
 <body>
 <%= yield %>
 </body>
+
+<footer>
+  <h1 id="footer_title">
+    <a href="/">ACHIEVE</a>
+  </h1>
+</footer>
+
 </html>
