@@ -11,18 +11,18 @@
 </head>
 
 <header>
-    <h1 id="header_title">
-        <a href="/">ACHIEVE</a>
-    </h1>
-    <nav class="pc-nav">
-        <ul id="unordered-list">
-            <li><a id="anchor" href="#">TOP</a></li>
-            <li><a id="anchor" href="#">BLOGS</a></li>
-            <li><a id="anchor" href="#">LOGIN</a></li>
-            <li><a id="anchor" href="#">USERS</a></li>
-            <li><a id="anchor" href="#">INQUIRY</a></li>
-        </ul>
-    </nav>
+  <h1 id="header_title">
+    <a href="/">ACHIEVE</a>
+  </h1>
+  <nav class="pc-nav">
+    <ul id="unordered-list">
+      <li><%= link_to 'TOP', root_path, id: "anchor" %></li>
+      <li><%= link_to 'BLOGS', blogs_path, id: "anchor" %></li>
+      <li><%= link_to 'LOGIN', blogs_path, id: "anchor" %></li>
+      <li><%= link_to 'USERS', blogs_path, id: "anchor" %></li>
+      <li><%= link_to 'INQUIRY', new_inquiry_path, id: "anchor" %></li>
+    </ul>
+  </nav>
 </header>
 
 <body>
@@ -31,7 +31,7 @@
 
 <footer>
   <h1 id="footer_title">
-    <a href="/">ACHIEVE</a>
+    <a href="/">top</a>
   </h1>
 </footer>
 
