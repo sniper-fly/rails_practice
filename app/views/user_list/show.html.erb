@@ -11,7 +11,7 @@
 
   <div>
     <strong>Icon:</strong>
-
+    <%= image_tag(@user_list.icon, id: "icon-img") if @user_list.icon.attached? %>
   </div>
 
   <div>
