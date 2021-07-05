@@ -1,0 +1,30 @@
+<div class="blog-detail">
+  <div>
+    <strong>Name:</strong>
+    <%= @user_list.name %>
+  </div>
+
+  <div>
+    <strong>Email Address:</strong>
+    <%= @user_list.email %>
+  </div>
+
+  <div>
+    <strong>Icon:</strong>
+
+  </div>
+
+  <div>
+    <strong>Last Sign In At:</strong>
+    <%= @user_list.last_sign_in_at %>
+  </div>
+
+  <div>
+    <strong>Created At:</strong>
+    <%= @user_list.created_at %>
+  </div>
+</div>
+
+<div class="move-btn">
+  <%= link_to 'Back', user_list_index_path, class: 'btn btn-sm btn-outline-dark' %>
+</div>

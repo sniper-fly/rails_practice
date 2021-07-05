@@ -2,10 +2,9 @@
 <table>
   <thead>
   <tr>
-    <th>user name</th>
-    <th>user email</th>
-    <th>created at</th>
-    <th>last sign in at</th>
+    <th>name</th>
+    <th>email</th>
+    <th>link</th>
   </tr>
   </thead>
   <tbody>
@@ -13,11 +12,7 @@
     <tr>
       <td><%= user.name %></td>
       <td><%= user.email %></td>
-      <td><%= user.created_at %></td>
-      <td><%= user.last_sign_in_at %></td>
-      <!--  <div class="blog-links">-->
-      <%#= link_to 'Show', user, class: 'btn btn-light btn-sm' %>
-      <!--  </div>-->
+      <td><%= link_to 'show', user_list_url(user.id), class: "btn btn-info btn-sm" %></td>
     </tr>
   <% end %>
   </tbody>
