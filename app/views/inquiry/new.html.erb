@@ -1,4 +1,4 @@
-<h1>お問い合わせ</h1>
+<h1 class="inquiry_title">お問い合わせ</h1>
 <%= form_for @inquiry, url: { action: 'confirm' } do |form| %>
   <table>
     <tr>
@@ -30,6 +30,6 @@
     <br>
   </table>
   <div class="actions">
-    <%= form.submit "内容確認" %>
+    <%= form.submit "内容確認", class: "btn btn-primary btn-sm" %>
   </div>
 <% end %>
