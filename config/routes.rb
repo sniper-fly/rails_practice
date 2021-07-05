@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :inquiry, only: [:index, :new, :create]
   post '/inquiry/confirm' => 'inquiry#confirm'
+  get '/inquiry/confirm' => 'inquiry#new'
   # post :confirm
 
 
