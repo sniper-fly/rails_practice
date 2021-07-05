@@ -1,25 +1,25 @@
 <div class="blog-detail">
-  <div>
+  <div class="user-property">
     <strong>Name:</strong>
     <%= @user_list.name %>
   </div>
 
-  <div>
+  <div class="user-property">
     <strong>Email Address:</strong>
     <%= @user_list.email %>
   </div>
 
-  <div>
+  <div class="user-property">
     <strong>Icon:</strong>
     <%= image_tag(@user_list.icon, id: "icon-img") if @user_list.icon.attached? %>
   </div>
 
-  <div>
+  <div class="user-property">
     <strong>Last Sign In At:</strong>
     <%= @user_list.last_sign_in_at %>
   </div>
 
-  <div>
+  <div class="user-property">
     <strong>Created At:</strong>
     <%= @user_list.created_at %>
   </div>
