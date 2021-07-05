@@ -1,0 +1,25 @@
+<h1>Listing Users</h1>
+<table>
+  <thead>
+  <tr>
+    <th>user name</th>
+    <th>user email</th>
+    <th>created at</th>
+    <th>last sign in at</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @user_lists.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.last_sign_in_at %></td>
+      <!--  <div class="blog-links">-->
+      <%#= link_to 'Show', user, class: 'btn btn-light btn-sm' %>
+      <!--  </div>-->
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
