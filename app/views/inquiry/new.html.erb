@@ -1,34 +1,35 @@
-<%= link_to 'Blog Top', blogs_path %>
 <h1>お問い合わせ</h1>
-<%= form_for @inquiry, url: {action: 'confirm'} do |form| %>
-  <div>
-    <%= form.label "名前" %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label "メールアドレス" %>
-    <%= form.email_field :mail_address %>
-  </div>
-  <div>
-    <%= form.label "カテゴリー"%>
-  </div>
-  <div>
-    <%= form.radio_button :category, Inquiry.category_kinds[:achieve] %>
-    <%= form.label "Achieve", {style: "display: inline-block;"}%>
-    <%= form.radio_button :category, Inquiry.category_kinds[:text] %>
-    <%= form.label "テキスト", {style: "display: inline-block;"}%>
+<%= form_for @inquiry, url: { action: 'confirm' } do |form| %>
+  <table>
+    <tr>
+      <th> <%= form.label "名前" %> </th>
+      <th> <%= form.text_field :name %> </th>
+    </tr>
+    <tr>
+      <th><%= form.label "メールアドレス" %></th>
+      <th><%= form.email_field :mail_address %></th>
+    </tr>
+    <tr>
+      <th><%= form.label "カテゴリー" %></th>
+      <th>
+        <%= form.radio_button :category, Inquiry.category_kinds[:achieve] %>
+        <%= form.label "Achieve", { style: "display: inline-block;" } %>
+        <%= form.radio_button :category, Inquiry.category_kinds[:text] %>
+        <%= form.label "テキスト", { style: "display: inline-block;" } %>
+        <br>
+        <%= form.radio_button :category, Inquiry.category_kinds[:info_session] %>
+        <%= form.label "説明会", { style: "display: inline-block;" } %>
+        <%= form.radio_button :category, Inquiry.category_kinds[:others] %>
+        <%= form.label "その他", { style: "display: inline-block;" } %>
+      </th>
+    </tr>
+    <tr>
+      <th><%= form.label "内容" %></th>
+      <th><%= form.text_area :content %></th>
+    </tr>
     <br>
-    <%= form.radio_button :category, Inquiry.category_kinds[:info_session] %>
-    <%= form.label "説明会", {style: "display: inline-block;"}%>
-    <%= form.radio_button :category, Inquiry.category_kinds[:others] %>
-    <%= form.label "その他", {style: "display: inline-block;"}%>
-  </div>
+  </table>
   <div>
-    <%= form.label "内容" %>
-    <%= form.text_area :content %>
-  </div>
-  <br>
-  <div>
-    <%= form.submit "内容確認"%>
+    <%= form.submit "内容確認" %>
   </div>
 <% end %>
