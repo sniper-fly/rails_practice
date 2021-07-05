@@ -11,5 +11,9 @@
   <%= @blog.article %>
 </p>
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<!--<%#= link_to 'Edit', edit_blog_path(@blog) %> |-->
+<%#= link_to 'Back', blogs_path %>
+<div class="move-btn">
+  <%= link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-sm btn-outline-dark' %>
+  <%= link_to 'Back', blogs_path, class: 'btn btn-sm btn-outline-dark' %>
+</div>
