@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
 
   # GET /blogs or /blogs.json
   def index
-    @blogs = Blog.select(:id, :name, :article, :created_at, :user_id).includes(:user)
+    @blogs = Blog.index_all.page(params[:page])
   end
 
   # GET /blogs/1 or /blogs/1.json
