@@ -49,7 +49,8 @@ group :development do
   gem 'letter_opener_web', '~> 1.0'
   gem 'rexml'
   gem 'devise'
-  gem 'kaminari'
+  gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
+
 end
 
 group :test do
