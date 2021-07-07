@@ -2,5 +2,7 @@
 
 <%= render 'form', blog: @blog %>
 
-<%= link_to 'Show', @blog %> |
-<%= link_to 'Back', blogs_path %>
+<div class="move-btn">
+  <%= link_to 'Show', @blog, class: 'btn btn-sm btn-outline-dark' %>
+  <%= link_to 'Back', blogs_path, class: 'btn btn-sm btn-outline-dark' %>
+</div>

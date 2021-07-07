@@ -1,21 +1,21 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class="padding-head">Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %><br/>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %><br/>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :icon %><br />
-    <%= image_tag(@user.icon) if @user.icon.attached? %>
+    <%= f.label :icon %><br/>
+    <%= image_tag(@user.icon, id: "icon-img") if @user.icon.attached? %><br>
     <%= f.file_field :icon %>
     <%#= f.file_field :icon, multiple: true, direct_upload: true %>
   </div>
@@ -25,31 +25,37 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br/>
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
-      <br />
+      <br/>
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %><br/>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br/>
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="padding-head">
+    <%= f.submit "Update", class: "btn btn-secondary text-light" %>
+  </div>
+
+  <div class="padding-head">
+    <h3>Sign out</h3>
+    <div>
+      <%= link_to 'sign out', destroy_user_session_path, class: "btn btn-secondary text-light", method: :delete %>
+    </div>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<div class="padding-head">
+  <h3>Delete my account</h3>
+  <p>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "Are you sure?" }, method: :delete %></p>
+</div>
