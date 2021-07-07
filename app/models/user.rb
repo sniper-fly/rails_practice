@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_one_attached :icon
+  has_many :blogs, dependent: :destroy
 end
