@@ -49,6 +49,7 @@ group :development do
   gem 'letter_opener_web', '~> 1.0'
   gem 'rexml'
   gem 'devise'
+  gem 'kaminari'
 end
 
 group :test do
