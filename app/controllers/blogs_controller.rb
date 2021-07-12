@@ -56,8 +56,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      @blogs = Blog.all
-      format.html { render :index, notice: "Blog was successfully destroyed." }
+      format.html { redirect_to blogs_url, flash: { notice: "Blog was deleted."} }
       format.json { head :no_content }
     end
   end
