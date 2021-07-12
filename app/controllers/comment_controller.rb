@@ -1,5 +1,5 @@
 class CommentController < ApplicationController
-  before_action :set_comment, only: %i[ edit destroy ]
+  before_action :set_comment, only: %i[ edit update destroy ]
 
   def create
     @comment = Comment.new(comment_params)
@@ -15,6 +15,14 @@ class CommentController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to blog_url(@comment.blog_id), notice: "The comment was successfully updated."
+    else
+      redirect_to blog_url(@comment.blog_id), status: :unprocessable_entity
+    end
   end
 
   def destroy

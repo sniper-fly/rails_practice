@@ -1,0 +1,11 @@
+<%= form_for @comment do |f| %>
+  <div>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Update comment', class: "btn btn-primary" %>
+  </div>
+  <div class="actions">
+    <%= link_to 'Destroy', comment_path(@comment.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+  </div>
+<% end %>

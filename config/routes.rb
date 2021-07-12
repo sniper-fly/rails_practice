@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :user_list, only: [:index, :show]
   post '/inquiry/confirm' => 'inquiry#confirm'
   get '/inquiry/confirm' => 'inquiry#new'
-  resources :comment, only: [:create, :edit, :destroy]
+  resources :comment, only: [:create, :edit, :update, :destroy]
   # post :confirm
 
 
