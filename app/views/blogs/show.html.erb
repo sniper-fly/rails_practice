@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-<%# binding.pry %>
 
 <div class="blog-detail">
   <div class="user-property">
@@ -11,7 +10,30 @@
     <strong>Article:</strong>
     <%= simple_format(@blog.article) %>
   </div>
+  <h4> comments </h4>
+
+  <%= form_for @comment, url: {controller: 'comment', action: 'create' } do |f| %>
+    <div>
+      <%= f.text_area :content %>
+      <%= f.hidden_field :blog_id, :value => @blog.id %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Post comment', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <% @blog.comments.each do |comment| %>
+    <div>
+      <%= comment.user.email %>
+    </div>
+    <div>
+      <%= comment.content %>
+    </div>
+  <% end %>
+
+
 </div>
+
 
 <div class="move-btn">
   <%= link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-sm btn-outline-dark' %>
