@@ -1,7 +1,7 @@
 class UserListController < ApplicationController
   before_action :set_user_list, only: [:show]
   def index
-    @user_lists = User.all
+    @user_lists = User.index_all.page(params[:page])
   end
 
   def show
