@@ -10,7 +10,7 @@ class Blog < ApplicationRecord
   scope :index_all, -> {
     select(:id, :name, :article, :created_at, :user_id)
       .order(created_at: :asc)
-      .includes(:user)
+      .includes(:user, :comments)
   }
 end
 
