@@ -39,4 +39,9 @@ class User < ApplicationRecord
       .order(created_at: :asc)
       .includes(:blogs)
   }
+
+  def is_following?(user)
+    self.following.find_by(id: user.id).present?
+  end
+
 end
