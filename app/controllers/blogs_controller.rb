@@ -62,6 +62,10 @@ class BlogsController < ApplicationController
   def top
   end
 
+  def favorites
+    @blogs = current_user.favorite_blogs.page(params[:page])
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

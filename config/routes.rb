@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'blogs#top'
   resources :blogs
+  get '/blog/favorites' => 'blogs#favorites'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :inquiry, only: [:index, :new, :create]
   resources :user_list, only: [:index, :show]
