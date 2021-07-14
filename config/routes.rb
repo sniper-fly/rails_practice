@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/inquiry/confirm' => 'inquiry#confirm'
   get '/inquiry/confirm' => 'inquiry#new'
   resources :comment, only: [:create, :edit, :update, :destroy]
+  resources :favorites, only: [:create, :destroy]
   # post :confirm
 
 
