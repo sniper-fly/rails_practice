@@ -14,12 +14,10 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   def new
     @blog = Blog.new
-    # binding.pry
   end
 
   # GET /blogs/1/edit
   def edit
-    # binding.pry
   end
 
   # POST /blogs or /blogs.json

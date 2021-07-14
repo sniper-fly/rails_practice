@@ -25,12 +25,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   @user = current_user
   #   if !@user.icon.attached?
   #     hoge = @user.icon.attach(ActiveStorage::Blob.find_by(key: icon_key))
-  #     # binding.pry
   #   end
   # end
 
   # def create
-  #   binding.pry
   # end
 
   # DELETE /resource

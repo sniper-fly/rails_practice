@@ -13,7 +13,6 @@ class InquiryController < ApplicationController
 
   def create
     @inquiry = Inquiry.new(inquiry_params)
-    # binding.pry
     if params[:back]
       # redirect_to new_inquiry_path こちらを使うと, フォームが消える。つまり、上記new, confirmで値が消えないのはデフォルトでrenderを使っているから？
       render :new
