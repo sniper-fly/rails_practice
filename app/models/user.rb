@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_one_attached :icon
   has_many :blogs, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_blogs, through: :favorites, source: :blog
 
   paginates_per 3
 
