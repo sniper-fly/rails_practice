@@ -9,6 +9,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1 or /blogs/1.json
   def show
     @comment = Comment.new
+    @is_blog_favorite = @blog.favorite_users.find_by(id: current_user.id).present?
   end
 
   # GET /blogs/new
