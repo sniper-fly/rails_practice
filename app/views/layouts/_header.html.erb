@@ -1,0 +1,17 @@
+<header>
+  <h1 id="header_title">
+    <a href="/">ACHIEVE</a>
+  </h1>
+  <nav class="pc-nav">
+    <ul id="unordered-list">
+      <li><%= link_to 'TOP', root_path, id: "anchor" %></li>
+      <li><%= link_to 'BLOGS', blogs_path, id: "anchor" %></li>
+      <li><%= link_to 'FAVORITES', blog_favorites_path, id: "anchor" %></li>
+      <li><%= link_to 'SETTINGS', edit_user_registration_path, id: "anchor" %></li>
+      <li><%= link_to 'USERS', user_list_index_path, id: "anchor" %></li>
+      <li><%= link_to 'FOLLOW', user_list_follow_path, id: "anchor" %></li>
+      <li><%= link_to 'FOLLOWERS', user_list_followers_path, id: "anchor" %></li>
+      <li><%= link_to 'INQUIRY', new_inquiry_path, id: "anchor" %></li>
+    </ul>
+  </nav>
+</header>
