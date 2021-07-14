@@ -3,12 +3,12 @@ class BlogsController < ApplicationController
 
   # GET /blogs or /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.index_all.page(params[:page])
   end
 
   # GET /blogs/1 or /blogs/1.json
   def show
-    # binding.pry
+    @comment = Comment.new
   end
 
   # GET /blogs/new
@@ -25,6 +25,7 @@ class BlogsController < ApplicationController
   # POST /blogs or /blogs.json
   def create
     @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
 
     respond_to do |format|
       if @blog.save
@@ -55,8 +56,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      @blogs = Blog.all
-      format.html { render :index, notice: "Blog was successfully destroyed." }
+      format.html { redirect_to blogs_url, flash: { notice: "Blog was deleted."} }
       format.json { head :no_content }
     end
   end
@@ -65,13 +65,14 @@ class BlogsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blog
-      @blog = Blog.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def blog_params
-      params.require(:blog).permit(:name, :article)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_blog
+    @blog = Blog.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def blog_params
+    params.require(:blog).permit(:name, :article)
+  end
 end

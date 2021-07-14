@@ -1,19 +1,45 @@
-<p id="notice"><%= notice %></p>
-<%# binding.pry %>
-
 <div class="blog-detail">
-  <div>
+  <div class="user-property">
     <strong>Name:</strong>
     <%= @blog.name %>
   </div>
 
-  <div>
+  <div class="user-property">
     <strong>Article:</strong>
     <%= simple_format(@blog.article) %>
   </div>
-</div>
+  <h4> comments </h4>
 
-<div class="move-btn">
-  <%= link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-sm btn-outline-dark' %>
-  <%= link_to 'Back', blogs_path, class: 'btn btn-sm btn-outline-dark' %>
+  <%= form_for @comment, url: { controller: 'comment', action: 'create' } do |f| %>
+    <%= f.hidden_field :blog_id, :value => @blog.id %>
+    <div>
+      <%= f.text_area :content %>
+    </div>
+    <div>
+      <%= f.submit 'Post comment', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <div class="move-btn">
+    <%= link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-sm btn-outline-dark' %>
+    <%= link_to 'Back', blogs_path, class: 'btn btn-sm btn-outline-dark' %>
+  </div>
+
+  <div id="comments-entry">
+    <% @blog.comments.each do |comment| %>
+      <div id="each-comment">
+        <div id="margin-btwn-email-and-comment">
+          <span> email [</span>
+          <%= comment.user.email %>
+          <span>]</span>
+          <%= link_to 'Edit', edit_comment_path(comment.id), class: 'btn btn-info btn-sm' %> |
+          <%= link_to 'Destroy', comment_path(comment.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </div>
+        <div>
+          <%= comment.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 </div>
