@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   post '/inquiry/confirm' => 'inquiry#confirm'
   get '/inquiry/confirm' => 'inquiry#new'
 
-  resources :user_list, only: [:index, :show, :create, :destroy]
   get '/user_list/followers' => 'user_list#followers'
   get '/user_list/follow' => 'user_list#follow'
+  resources :user_list, only: [:index, :show, :create, :destroy]
 
   resources :comment, only: [:create, :edit, :update, :destroy]
 

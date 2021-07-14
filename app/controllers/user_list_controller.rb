@@ -18,14 +18,16 @@ class UserListController < ApplicationController
   end
 
   def followers
+    @followers = current_user.followers.page(params[:page])
   end
 
   def follow
+    @follow_users = current_user.following.page(params[:page])
   end
 
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_user_list
     @user_list = User.find(params[:id])
   end
